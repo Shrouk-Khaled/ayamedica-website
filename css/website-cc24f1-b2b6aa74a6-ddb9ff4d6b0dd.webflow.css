@@ -869,7 +869,7 @@ p {
   margin-top: 10px;
   margin-bottom: 20px;
   font-family: Poppins, sans-serif;
-  color: #094543;
+  color: #114b7a;
   font-size: 18px;
   font-weight: 600;
   text-align: center;
@@ -882,7 +882,7 @@ p {
 .services-text {
   opacity: 0.9;
   font-family: 'Avenirltstd book', sans-serif;
-  color: #094543;
+  color: #183a59;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
@@ -1407,7 +1407,7 @@ p {
 }
 
 .container.services {
-  padding-top: 120px;
+  /* padding-top: 120px; */
   padding-bottom: 80px;
 }
 
@@ -1530,11 +1530,10 @@ p {
 
 .hero-img {
   position: relative;
-  display: block;
-  width: 75%;
-  height: 75%;
-  margin-top: 18px;
-  margin-left: 113px;
+  /* display: block; */
+  width: 50%;
+  height: 50%;
+  margin: auto;
   padding: 0px;
   clear: right;
   -webkit-align-self: center;
@@ -1721,7 +1720,7 @@ p {
 
 .small-heading {
   display: inline-block;
-  margin-top: 185px;
+  margin-top: 100px;
   margin-bottom: 70px;
   margin-left: 49px;
   padding: 10px 14px;
@@ -2162,9 +2161,9 @@ p {
 }
 
 .services-wrapper {
-  display: -ms-grid;
+  /* display: -ms-grid;
   display: grid;
-  margin-top: 154px;
+  margin-top: 100px;
   grid-auto-columns: 1fr;
   grid-column-gap: 40px;
   grid-row-gap: 16px;
@@ -2172,7 +2171,13 @@ p {
   -ms-grid-columns: 1fr 40px 1fr 40px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: auto;
-  grid-template-rows: auto;
+  grid-template-rows: auto; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .services-header {
@@ -3763,6 +3768,73 @@ p {
 .link {
   text-decoration: none;
 }
+/* doctor */
+.doctor-card{
+  width: 48%;
+  margin: 10px;
+  /* padding: 200px; */
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px #183a59;
+}
+.doctor-img{
+  position: relative;
+  /* display: block; */
+  width: 30vh;
+  height: 30vh;
+  margin: auto;
+  padding: 0px;
+  clear: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.title-box{
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.title-name{
+  font-weight: 600;
+  color: #114b7a;
+}
+.title-text{
+  color: #183a59;
+  font-size: 15px;
+  font-weight: 500;
+}
+.herf-style{
+  color: #114b7a;
+  font-weight: 500;
+}
+.book-box{
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.book-box:hover{
+  cursor: pointer;
+}
+.doctor-details{
+  height: 70vh;
+  overflow: scroll;
+}
+
 
 @media screen and (min-width: 1440px) {
   .section {
@@ -4542,7 +4614,7 @@ p {
 
   .bold-text-25 {
     color: #183a59;
-  }
+  } 
 
   .image-13 {
     width: 50px;
@@ -4668,6 +4740,38 @@ p {
 }
 
 @media screen and (max-width: 991px) {
+  .doctor-img{
+    position: relative;
+    display: block;
+    width: 40vh;
+    height: 50vh;
+    margin: auto;
+    padding: 0px;
+    clear: right;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  .doctor-card{
+    width: 95%;
+    margin: 10px;
+    /* padding: 200px; */
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px #183a59;
+  }
   h3 {
     font-family: Poppins, sans-serif;
     color: #14a29d;
@@ -5069,7 +5173,7 @@ p {
   }
 
   .container.services {
-    padding-top: 60px;
+    /* padding-top: 60px; */
     padding-bottom: 60px;
   }
 
@@ -5320,6 +5424,7 @@ p {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: row;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
@@ -5613,7 +5718,7 @@ p {
   }
 
   .container.services {
-    padding-top: 40px;
+    /* padding-top: 40px; */
     padding-bottom: 40px;
   }
 
@@ -5960,6 +6065,41 @@ p {
 }
 
 @media screen and (max-width: 479px) {
+  .hero-img{
+    width: 100%;
+  }
+  .doctor-img{
+    position: relative;
+    display: block;
+    width: 20vh;
+    height: 20vh;
+    margin: auto;
+    padding: 0px;
+    clear: right;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+  .doctor-card{
+    width: 90%;
+    margin: 10px;
+    /* padding: 200px; */
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px #183a59;
+  }
   .footer {
     padding: 40px 10px;
     text-align: left;
