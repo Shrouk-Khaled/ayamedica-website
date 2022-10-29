@@ -8007,3 +8007,78 @@ p {
   font-style: normal;
   font-display: swap;
 }
+
+/*Payment Page*/
+.Payment-Method{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 80%;
+  margin: auto;
+  height: 100vh;
+}
+.Payment-Method .payment-text{
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 8px grey;
+  border-radius: 10px;
+}
+.Payment-Method .payment-text h1{
+  font-weight: 700;
+  color: #114b7a;
+  padding: 10px;
+  font-family: Poppins, sans-serif;
+}
+.Payment-Method .Doctor-Info h4{
+  color: #114b7a;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+  padding: 10px;
+}
+
+.Payment-Method .Doctor-Info h4 span{
+  color: #114b7a;
+  font-weight: normal;
+}
+
+.Payment-Method .Doctor-Info .doctor-location .locations{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.Payment-Method .Doctor-Info .doctor-location .locations .location-btn{
+  padding: 20px 10px;
+  font-size: 20px;
+  border: 1px solid #183a59;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 25%;
+  margin: 10px;
+  line-height: 1;
+  font-weight: 600;
+  color: #114b7a;
+}
+.Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
+  background-color: #183a59;
+  color: #fff;
+  transition: ease-in-out 0.3s;
+}
+.Payment-Method .Doctor-Info .package-includes .package-list{
+  color: #114b7a;
+  font-weight: 600;
+}
+
+.Payment-Method .Pay-btn {
+  color: #fff;
+  padding: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+  font-size: 25px;
+  background-color: #114b7a;
+  margin: auto;
+  width: 10%;
+}
+
