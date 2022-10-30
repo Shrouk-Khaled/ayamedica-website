@@ -1499,6 +1499,9 @@ p {
   grid-template-rows: auto;
 }
 
+.hero-wrap .hero-img{
+  margin: auto;
+}
 .hero-wrap.rtl {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
@@ -2161,7 +2164,7 @@ p {
 }
 
 .services-wrapper {
-  /* display: -ms-grid;
+  display: -ms-grid;
   display: grid;
   margin-top: 100px;
   grid-auto-columns: 1fr;
@@ -2171,14 +2174,17 @@ p {
   -ms-grid-columns: 1fr 40px 1fr 40px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   -ms-grid-rows: auto;
-  grid-template-rows: auto; */
-  display: flex;
+  grid-template-rows: auto;
+  /* display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
+  width: 100%; */
 }
+
+
+
+
 
 .services-header {
   display: -webkit-box;
@@ -3767,72 +3773,6 @@ p {
 
 .link {
   text-decoration: none;
-}
-/* doctor */
-.doctor-card{
-  width: 48%;
-  margin: 10px;
-  /* padding: 200px; */
-  flex-direction: row;
-  align-items: center;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 0 5px #183a59;
-}
-.doctor-img{
-  position: relative;
-  /* display: block; */
-  width: 30vh;
-  height: 30vh;
-  margin: auto;
-  padding: 0px;
-  clear: right;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 auto;
-  -ms-flex: 0 auto;
-  flex: 0 auto;
-  font-size: 15px;
-  font-weight: 400;
-  text-align: center;
-  -o-object-fit: contain;
-  object-fit: contain;
-}
-.title-box{
-  padding: 5px;
-  margin-bottom: 10px;
-}
-.title-name{
-  font-weight: 600;
-  color: #114b7a;
-}
-.title-text{
-  color: #183a59;
-  font-size: 15px;
-  font-weight: 500;
-}
-.herf-style{
-  color: #114b7a;
-  font-weight: 500;
-}
-.book-box{
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-.book-box:hover{
-  cursor: pointer;
-}
-.doctor-details{
-  height: 70vh;
-  overflow: scroll;
 }
 
 
@@ -8007,6 +7947,81 @@ p {
   font-style: normal;
   font-display: swap;
 }
+
+/*Events Page*/
+.Doctors-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.doctor-card{
+  width: 48%;
+  margin: 10px;
+  /* padding: 200px; */
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 5px #183a59;
+}
+.doctor-img{
+  position: relative;
+  /* display: block; */
+  width: 30vh;
+  height: 30vh;
+  margin: auto;
+  padding: 0px;
+  clear: right;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 auto;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.title-box{
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.title-name{
+  font-weight: 600;
+  color: #114b7a;
+}
+.title-text{
+  color: #183a59;
+  font-size: 15px;
+  font-weight: 500;
+}
+.herf-style{
+  color: #114b7a;
+  font-weight: 500;
+}
+.book-box{
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.book-box:hover{
+  cursor: pointer;
+}
+.doctor-details{
+  height: 70vh;
+  overflow: scroll;
+}
+
 
 /*Payment Page*/
 .Payment-Method{

@@ -114,7 +114,7 @@ if(document.title === "Events"){
             ]
         },
     ]
-    var Service_Wrapper= document.querySelector(".services-wrapper");
+    var Service_Wrapper= document.querySelector(".Doctors-wrapper");
     let cardHTML= "";
     let counter= 1;
     Doctors_Data.forEach(doctor => {
