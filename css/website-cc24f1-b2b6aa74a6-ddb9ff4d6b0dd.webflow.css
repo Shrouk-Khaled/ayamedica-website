@@ -139,6 +139,8 @@ p {
 
 .primary-navigation {
   direction: rtl;
+  background-color: red;
+  margin: 10px 0;
 }
 
 .primary-navigation.rtl {
@@ -8016,7 +8018,7 @@ p {
   align-items: flex-start;
   width: 80%;
   margin: auto;
-  height: 100vh;
+  height: auto;
 }
 .Payment-Method .payment-text{
   margin: 0 auto;
@@ -8070,8 +8072,16 @@ p {
   color: #114b7a;
   font-weight: 600;
 }
+.Payment-Method .goPay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+}
 
-.Payment-Method .Pay-btn {
+.Payment-Method .goPay .Pay-btn {
   color: #fff;
   padding: 20px;
   font-weight: 500;
@@ -8081,4 +8091,5 @@ p {
   margin: auto;
   width: 10%;
 }
+
 

@@ -1,0 +1,175 @@
+@media screen and (min-width: 0px) and (max-width: 480px) {
+    .Payment-Method{
+        margin: auto ;
+        width: 90%;
+    }
+    .Payment-Method .payment-text{
+        font-size: 12px;
+        padding: 5px;
+    }
+    .Payment-Method .payment-text h1{
+        font-size: 12px;
+        padding: 2px;
+    }
+    .Payment-Method .Doctor-Info h4{
+        color: #114b7a;
+        font-weight: bold;
+        font-family: Poppins, sans-serif;
+        padding: 10px;
+        font-size: 12px;
+      }
+      
+      .Payment-Method .Doctor-Info .doctor-location .locations{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn{
+        padding: 10px;
+        font-size: 12px;
+        width: 50%;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
+        background-color: #183a59;
+        color: #fff;
+        transition: ease-in-out 0.3s;
+      }
+      .Payment-Method .Doctor-Info .package-includes .package-list{
+        color: #114b7a;
+        font-size: 12px;
+        font-weight: 500;
+      }
+      .Payment-Method .Doctor-Info .package-includes h4{
+        margin: 0;
+      }
+      
+      .Payment-Method .goPay{
+        width: 100%;
+      }
+
+      .Payment-Method .goPay .Pay-btn {
+        color: #fff;
+        padding: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: auto;
+        width: 20%;
+      }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .Payment-Method{
+        margin: auto ;
+        width: 90%;
+    }
+    .Payment-Method .payment-text{
+        padding: 5px;
+    }
+    .Payment-Method .payment-text h1{
+        font-size: 20px;
+        padding: 10px;
+    }
+    .Payment-Method .Doctor-Info h4{
+        color: #114b7a;
+        font-weight: bold;
+        font-family: Poppins, sans-serif;
+        padding: 10px;
+        font-size: 15px;
+      }
+      
+      .Payment-Method .Doctor-Info .doctor-location .locations{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn{
+        padding: 10px;
+        font-size: 15px;
+        width: 50%;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
+        background-color: #183a59;
+        color: #fff;
+        transition: ease-in-out 0.3s;
+      }
+      .Payment-Method .Doctor-Info .package-includes .package-list{
+        color: #114b7a;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      .Payment-Method .Doctor-Info .package-includes h4{
+        margin: 0;
+      }
+      
+      .Payment-Method .goPay{
+        width: 100%;
+      }
+
+      .Payment-Method .goPay .Pay-btn {
+        color: #fff;
+        padding: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: auto;
+        width: 20%;
+      }
+}
+@media screen and (min-width: 769px) and (max-width: 1279px) {
+    .Payment-Method{
+        margin: auto ;
+        width: 90%;
+    }
+    .Payment-Method .payment-text{
+        padding: 5px;
+    }
+    .Payment-Method .payment-text h1{
+        font-size: 25px;
+        padding: 10px;
+    }
+    .Payment-Method .Doctor-Info h4{
+        color: #114b7a;
+        font-weight: bold;
+        font-family: Poppins, sans-serif;
+        padding: 10px;
+        font-size: 20px;
+      }
+      
+      .Payment-Method .Doctor-Info .doctor-location .locations{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn{
+        padding: 10px;
+        font-size: 20px;
+        width: 50%;
+      }
+      .Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
+        background-color: #183a59;
+        color: #fff;
+        transition: ease-in-out 0.3s;
+      }
+      .Payment-Method .Doctor-Info .package-includes .package-list{
+        color: #114b7a;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      .Payment-Method .Doctor-Info .package-includes h4{
+        margin: 0;
+      }
+      
+      .Payment-Method .goPay{
+        width: 100%;
+      }
+
+      .Payment-Method .goPay .Pay-btn {
+        color: #fff;
+        padding: 10px;
+        font-size: 20px;
+        background-color: #114b7a;
+        margin: auto;
+        width: 20%;
+      }
+}
