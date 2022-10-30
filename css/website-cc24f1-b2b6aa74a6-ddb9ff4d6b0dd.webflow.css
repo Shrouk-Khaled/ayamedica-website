@@ -139,8 +139,6 @@ p {
 
 .primary-navigation {
   direction: rtl;
-  background-color: red;
-  margin: 10px 0;
 }
 
 .primary-navigation.rtl {
