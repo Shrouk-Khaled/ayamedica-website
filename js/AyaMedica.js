@@ -12,7 +12,7 @@ function bookDoctor(doctor) {
 function getDoctorCard_HTML(doctor, id) {
     return `
         <div  class="doctor-card">
-            <div><img src="${doctor.imgPath}" loading="eager"
+            <div class= "docImgDiv"><img src="${doctor.imgPath}" loading="eager"
                 sizes="(max-width: 479px) 30vw, (max-width: 1439px) 68vw, 852px" height="125" width="125" alt=""
                 class="doctor-img">
             </div>

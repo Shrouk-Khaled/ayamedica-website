@@ -7951,6 +7951,13 @@ p {
 }
 
 /*Events Page*/
+.Doctors-Event{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .Doctors-wrapper{
   display: flex;
   flex-direction: row;
@@ -7958,6 +7965,7 @@ p {
   align-items: flex-start;
   flex-wrap: wrap;
 }
+
 .package-title{
   display: flex;
   align-items: center;
