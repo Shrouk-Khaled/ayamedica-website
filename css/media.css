@@ -44,17 +44,58 @@
         margin: 0;
       }
       
-      .Payment-Method .goPay{
+      .Payment-Method .goBookNow{
         width: 100%;
       }
 
-      .Payment-Method .goPay .Pay-btn {
+      .Payment-Method .goBookNow .BookNow-btn {
         color: #fff;
         padding: 10px;
         font-size: 15px;
         background-color: #114b7a;
         margin: auto;
         width: 20%;
+      }
+      .Payment-Method .goBookNow .BookNow-btn {
+        color: #fff;
+        padding: 10px;
+        font-weight: 500;
+        border-radius: 10px;
+        font-size: 12px;
+        background-color: #114b7a;
+        margin: auto;
+        width: 35%;
+      }
+      .bookDiv .goBook-btn{
+        color: #fff;
+        padding: 10px;
+        font-weight: 500;
+        border-radius: 10px;
+        font-size: 12px;
+        background-color: #114b7a;
+        margin: 25px auto;
+        width: 35%;
+      }
+      .first-name-input, .last-name-input, .phone-input, .email-input{
+        width: 60%;
+        padding: 5px;
+      }
+      .email-input{
+        width: 70%;
+      }
+      
+      #Book-Form #surgeryArea{
+        width: 100%;
+      }
+
+      .goPayDiv .Pay-btn{
+        color: #fff;
+        padding: 15px;
+        font-weight: 500;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: 25px auto;
       }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -102,11 +143,11 @@
         margin: 0;
       }
       
-      .Payment-Method .goPay{
+      .Payment-Method .goBookNow{
         width: 100%;
       }
 
-      .Payment-Method .goPay .Pay-btn {
+      .Payment-Method .goBookNow .BookNow-btn {
         color: #fff;
         padding: 10px;
         font-size: 15px;
@@ -114,6 +155,40 @@
         margin: auto;
         width: 20%;
       }
+
+      .bookDiv .goBook-btn{
+        color: #fff;
+        padding: 10px;
+        font-weight: 700;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: 25px auto;
+        width: 15%;
+      }
+      .first-name-input, .last-name-input, .phone-input, .email-input{
+        width: 50%;
+        padding: 5px;
+      }
+      .email-input{
+        width: 60%;
+      }
+      
+      #Book-Form #surgeryArea{
+        width: 90%;
+      }
+
+      .goPayDiv .Pay-btn{
+        color: #fff;
+        padding: 15px;
+        font-weight: 700;
+        border-radius: 10px;
+        font-size: 20px;
+        background-color: #114b7a;
+        margin: 25px auto;
+      }
+
+
 }
 @media screen and (min-width: 769px) and (max-width: 1279px) {
     .Payment-Method{
@@ -160,16 +235,50 @@
         margin: 0;
       }
       
-      .Payment-Method .goPay{
+      .Payment-Method .goBookNow{
         width: 100%;
       }
 
-      .Payment-Method .goPay .Pay-btn {
+      .Payment-Method .goBookDay .Book-btn {
         color: #fff;
         padding: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: 15px auto;
+        width: 20%;
+      }
+
+      .bookDiv .goBook-btn{
+        color: #fff;
+        padding: 10px;
+        font-weight: 700;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #114b7a;
+        margin: 25px auto;
+        width: 15%;
+      }
+
+      .first-name-input, .last-name-input, .phone-input, .email-input{
+        width: 40%;
+        padding: 5px;
+      }
+      .email-input{
+        width: 50%;
+      }
+      
+      #Book-Form #surgeryArea{
+        width: 90%;
+      }
+
+
+      .goPayDiv .Pay-btn{
+        color: #fff;
+        padding: 15px;
+        font-weight: 700;
+        border-radius: 10px;
         font-size: 20px;
         background-color: #114b7a;
-        margin: auto;
-        width: 20%;
+        margin: 25px auto;
       }
 }

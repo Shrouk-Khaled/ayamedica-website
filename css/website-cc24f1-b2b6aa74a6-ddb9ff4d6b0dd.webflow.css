@@ -8056,6 +8056,12 @@ p {
   font-family: Poppins, sans-serif;
 }
 
+.Doctor-Info{
+  background-color: #97b8e92a;
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
 .Payment-Method .Doctor-Info h4{
   color: #114b7a;
   font-weight: bold;
@@ -8101,7 +8107,7 @@ p {
   color: #114b7a;
   font-weight: 600;
 }
-.Payment-Method .goPay {
+.Payment-Method .goBookNow {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8110,16 +8116,113 @@ p {
   width: 100%;
 }
 
-.Payment-Method .goPay .Pay-btn {
+.Payment-Method .goBookNow .BookNow-btn {
   color: #fff;
   padding: 20px;
-  font-weight: 500;
+  font-weight: 700;
   border-radius: 10px;
-  font-size: 25px;
+  font-size: 20px;
   background-color: #114b7a;
   margin: auto;
-  width: 10%;
-  margin: 50px;
+  width: 15%;
+}
+#goBook-Day{
+  display: none;
+}
+.CountryDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.CountryDiv #countrySelect{
+  padding: 10px;
+}
+.priceDiv #price-text{
+  color: rgb(190, 190, 60) ;
+  padding: 0 10px;
+  font-weight: 700;
+  font-size: 25px;
+}
+.bookDiv{
+  display: flex;
+}
+.bookDiv .goBook-btn{
+  color: #fff;
+  padding: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #114b7a;
+  margin: 25px auto;
+  width: 15%;
+}
+#Book-Form{
+  width: 100%;
+}
+#Book-Form > div{
+  margin: 10px;
+}
+.first-name-input, .last-name-input, .phone-input, .email-input{
+  background-color: #fff;
+  border: 1px solid #114b7a;
+  width: 20%;
+  padding: 5px;
+}
+.email-input{
+  width: 25%;
+  padding: 10px;
+
+}
+.first-name-input:focus, .last-name-input:focus, .phone-input:focus, .email-input:focus, #surgeryArea:focus{
+  background-color: #fff;
+  border: 1px solid #114b7a;
+  outline: none;
+  box-shadow: 0 0 8px #114b7a;
+}
+#Book-Form{
+  display: none;
+}
+#surgeryDesc{
+  display: none;
+  margin-top: 20px;
+}
+#surgeryDesc label{
+  color: gray;
+  padding: 5px 0;
+}
+#Book-Form #surgeryArea{
+  width: 80%;
+}
+#Book-Form .radios{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+#Book-Form  .ask-eyeSurgery{
+  color: #114b7a;
+  font-size: 20px;
+  font-weight: bold;
+}
+.goPayDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+}
+.goPayDiv .Pay-btn{
+  color: #fff;
+  padding: 20px;
+  font-weight: 700;
+  border-radius: 10px;
+  font-size: 20px;
+  background-color: #114b7a;
+  margin: 25px auto;
 }
 
 

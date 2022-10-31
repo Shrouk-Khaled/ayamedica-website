@@ -226,14 +226,68 @@
           <h4>PACKAGE INCLUDES</h4>
           <ul class="package-list"></ul>
         </div>
+        <div class="goBookNow">
+          <button class="BookNow-btn" onclick="HandleCalender()"> BOOK NOW</button>
+        </div>
+
+        <div id="goBook-Day">
+          <div class="CountryDiv">
+              <h4 class="country-name">COUNTRY: </h4>
+              <select name="country-select" id="countrySelect">
+                <option value="Egypt" selected> Egypt </option>
+                <option value="c2" > c2</option>
+                <option value="c3" >c3</option>
+                <option value="c4" >c4</option>
+              </select>
+          </div>
+          <div class="calenderDive">
+            Calender<br/>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis ullam, dignissimos ratione deserunt ex sequi quae alias accusamus non culpa, unde, hic voluptates fuga blanditiis laboriosam quod corrupti dolorum beatae optio ab? Odit officiis totam, culpa laborum in ab praesentium commodi itaque facere suscipit repellat rem vero. Deleniti aperiam sequi, voluptas magni harum perspiciatis est totam unde natus quis delectus, iure dolor animi doloribus ipsam numquam praesentium odio ratione aliquam cumque accusantium similique repellendus. Delectus voluptatem animi, laborum rerum commodi libero! Eos at a laudantium voluptatem expedita sapiente, non eum et tenetur impedit doloremque hic voluptates aut. Provident, cupiditate saepe.
+          </div>
+          <div class="priceDiv">
+            <h4 class="total-price"> Price: <span id="price-text">100$</span></h4>
+          </div>
+          <div class="bookDiv">
+            <button class="goBook-btn" onclick="handleBookForm()"> BOOK</button>
+          </div>
+        </div>
       </div>
-      <!-- <div class="Calender">
-        Calender<br/>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis ullam, dignissimos ratione deserunt ex sequi quae alias accusamus non culpa, unde, hic voluptates fuga blanditiis laboriosam quod corrupti dolorum beatae optio ab? Odit officiis totam, culpa laborum in ab praesentium commodi itaque facere suscipit repellat rem vero. Deleniti aperiam sequi, voluptas magni harum perspiciatis est totam unde natus quis delectus, iure dolor animi doloribus ipsam numquam praesentium odio ratione aliquam cumque accusantium similique repellendus. Delectus voluptatem animi, laborum rerum commodi libero! Eos at a laudantium voluptatem expedita sapiente, non eum et tenetur impedit doloremque hic voluptates aut. Provident, cupiditate saepe.
-      </div> -->
-      <div class="goPay">
-        <button class="Pay-btn" onclick="HandleCalender()"> Book</button>
-      </div>
+      
+        
+        <form action="#" method="POST" id="Book-Form">
+          <div class="FirstName">
+            <label for="first-name"> First Name</label>
+            <input type="text" name="first-name" class="first-name-input">
+          </div>
+          <div class="LastName">
+            <label for="last-name"> Last Name</label>
+            <input type="text" name="last-name" class="last-name-input">
+          </div>
+          <div class="PhoneNumber">
+            <label for="phone-name"> Phone Name</label>
+            <input type="text" name="phone-name" class="phone-input">
+          </div>
+          <div class="Email">
+            <label for="email"> Email</label>
+            <input type="email" name="email-name" class="email-input">
+          </div>
+          <div class="SurgeryRadio">
+            <div class="radios">
+              <span class="ask-eyeSurgery">Did you do an eye surgery before?</span>
+              <span>
+                <input type="radio" name="eyeSurgery" id="surgey-no" checked> No
+                <input type="radio" name="eyeSurgery" id="surgey-yes"> Yes
+              </span>
+            </div>
+            <div id="surgeryDesc">
+              <label for="surgeryArea"> Please Specify</label>
+              <textarea name="surgeryArea" id="surgeryArea" cols="30" rows="10"></textarea>
+            </div>
+          </div>
+          <div class="goPayDiv">
+            <button type="submit" class="Pay-btn"> PAY</button>
+          </div>
+        </form>
     </section>
     <!-- End Payment Section -->
 

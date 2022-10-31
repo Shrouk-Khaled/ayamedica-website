@@ -91,8 +91,13 @@ function setPackage_Info(doctor, index) {
 
 }
 
+function handleBookForm(){
+    document.getElementById('Book-Form').style.display= "block";
+}
+
 function HandleCalender() {
-    console.log('hello')
+    console.log('hello');
+    document.getElementById('goBook-Day').style.display= "block";
 }
 
 //Events Page
@@ -203,4 +208,11 @@ if (document.title === "Events") {
 } else if (document.title === "Payment") { //Payment Page
     const Doctor = JSON.parse(sessionStorage.getItem("DoctorPay_Data"));
     setDoctorPayment_Info(Doctor);
+    document.getElementById('surgey-no').onclick= ()=>{
+        document.getElementById('surgeryDesc').style.display= "none";
+    }
+    document.getElementById('surgey-yes').onclick= ()=>{
+        document.getElementById('surgeryDesc').style.display= "block";
+    }
+    console.log()
 }
