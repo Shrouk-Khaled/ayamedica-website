@@ -5185,7 +5185,7 @@ p {
     background-color: #fff;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 15px 0 rgba(0, 0, 0, 0.12);
     font-family: Poppins, sans-serif;
-    color: #14a29d;
+    color: #183a59;
     font-size: 16px;
     line-height: 1.2;
     font-weight: 600;
@@ -8043,13 +8043,13 @@ p {
 .Payment-Method .payment-text{
   margin: 0 auto;
   background-color: #fff;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 0 8px grey;
   border-radius: 10px;
   margin-top: 70px;
   margin-bottom: 70px;
 }
-.Payment-Method .payment-text h1{
+.Payment-Method .payment-text h3{
   font-weight: 700;
   color: #114b7a;
   padding: 10px;
@@ -8140,7 +8140,7 @@ p {
   padding: 10px;
 }
 .priceDiv #price-text{
-  color: rgb(190, 190, 60) ;
+  color: #fbc012 ;
   padding: 0 10px;
   font-weight: 700;
   font-size: 25px;
@@ -8205,7 +8205,7 @@ p {
 
 #Book-Form  .ask-eyeSurgery{
   color: #114b7a;
-  font-size: 20px;
+  font-size: 3vh;
   font-weight: bold;
 }
 .goPayDiv{
@@ -8224,5 +8224,13 @@ p {
   background-color: #114b7a;
   margin: 25px auto;
 }
-
+.calenderDive{
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.SurgeryRadio{
+  width: auto;
+}
 
