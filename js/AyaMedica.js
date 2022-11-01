@@ -118,6 +118,7 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
     const nextDays = lastIndex;
     const lastDay = new Date(date.getFullYear(), months_numbers[monthIndex], 0).getDate()
     const prevLastDay = new Date(date.getFullYear(), months_numbers[monthIndex] - 1, 0).getDate() 
+    let lastClickedDay= ""; 
 
     document.querySelector('.month-div span h3').innerHTML = `${months[monthIndex]} 2022`;
     let days = '';
@@ -128,7 +129,7 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
     }
 
     for (let i = 1; i <= lastDay; i++) {
-        if (months_numbers[monthIndex] == 11) {
+        if (months_numbers[monthIndex] == 11) {//if December
             if (i < 22) {
                 days += `<div class='prev-day'>${i}</div>`
             } else {
@@ -142,12 +143,17 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
                 days += `<div class='day-clicked-${i}'>${i}</div>`
         }
         monthDiv.innerHTML = days;
+        
     }
+    // monthDiv.innerHTML = days;
+    monthDiv.insertAdjacentHTML('beforeend', days);
 
+    monthDiv.innerHTML= "";
     for (let y = 1; y <= nextDays; y++) {
-        days += `<div class='last-day'>${y}</div>`
-        monthDiv.innerHTML = days
+        days += `<div class='last-day'>${y}</div>`;
+        // monthDiv.innerHTML = days
     }
+    monthDiv.insertAdjacentHTML('beforeend', days);
 
     //add event listener to day when click
     for (let i = 1; i <= lastDay; i++) {
@@ -155,7 +161,14 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
 
             i < 22 ? ''
                 :
-                document.querySelector(`.day-clicked-${i}`).addEventListener('click', () => {
+                document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
+                    if(lastClickedDay){
+                        lastClickedDay.style.backgroundColor= "#fff";
+                        lastClickedDay.style.color= "#114b7a";
+                    }
+                    lastClickedDay= ev.target;
+                    lastClickedDay.style.backgroundColor= "#114b7a";
+                    lastClickedDay.style.color= "#fff";
                     document.querySelector('.dayDiv').style.display = 'block'
                     document.getElementById('day-choose-text').innerHTML = i + '/' + months_numbers[monthIndex] + '/' + 2022;
                 })
@@ -164,7 +177,14 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
             i > 22 ?
                 ''
                 :
-                document.querySelector(`.day-clicked-${i}`).addEventListener('click', () => {
+                document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
+                    if(lastClickedDay){
+                        lastClickedDay.style.backgroundColor= "#fff";
+                        lastClickedDay.style.color= "#114b7a";
+                    }
+                    lastClickedDay= ev.target;
+                    lastClickedDay.style.backgroundColor= "#114b7a";
+                    lastClickedDay.style.color= "#fff";
                     document.querySelector('.dayDiv').style.display = 'block'
                     document.getElementById('day-choose-text').innerHTML = i + '/' + months_numbers[monthIndex] + '/' + 2022;
                 })
