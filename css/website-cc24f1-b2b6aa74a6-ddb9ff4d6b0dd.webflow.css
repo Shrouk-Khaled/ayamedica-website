@@ -8341,6 +8341,7 @@ p {
   align-items: center;
   background-color: #97b8e92a;
   border-radius: 50px;
+  color: #114b7a;
 }
 .days div:focus{
   background-color: #114b7a;

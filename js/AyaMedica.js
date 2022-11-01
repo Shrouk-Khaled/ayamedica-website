@@ -129,14 +129,14 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
     }
 
     for (let i = 1; i <= lastDay; i++) {
-        if (months_numbers[monthIndex] == 11) {//if December
+        if (months_numbers[monthIndex] == 11) {//if Novamber
             if (i < 22) {
                 days += `<div class='prev-day'>${i}</div>`
             } else {
                 days += `<div class='day-clicked-${i}'>${i}</div>`
             }
         }
-        else {
+        else { //if December
             i > 22 ?
                 days += `<div class='prev-day'>${i}</div>`
                 :
@@ -163,7 +163,7 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
                 :
                 document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
                     if(lastClickedDay){
-                        lastClickedDay.style.backgroundColor= "#fff";
+                        lastClickedDay.style.backgroundColor= "#97b8e92a";
                         lastClickedDay.style.color= "#114b7a";
                     }
                     lastClickedDay= ev.target;
@@ -179,7 +179,7 @@ function setCalender(monthIndex, firstIndex, lastIndex) {
                 :
                 document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
                     if(lastClickedDay){
-                        lastClickedDay.style.backgroundColor= "#fff";
+                        lastClickedDay.style.backgroundColor= "#97b8e92a";
                         lastClickedDay.style.color= "#114b7a";
                     }
                     lastClickedDay= ev.target;
