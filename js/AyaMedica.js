@@ -247,6 +247,8 @@ function setCalender(monthIndex, firstIndex, lastIndex, country) {
                 i < 20 ? ''
                     :
                     document.querySelector(`.day-clicked-${months[monthIndex]}-${i}`).addEventListener('click', (ev) => {
+                        document.querySelector('.goBook-btn').removeAttribute('disabled');
+                        
                         if(lastClickedDay){//Clear Previous Clicked
                             lastClickedDay.style.backgroundColor= "#97b8e92a";
                             lastClickedDay.style.color= "#114b7a";
@@ -261,6 +263,7 @@ function setCalender(monthIndex, firstIndex, lastIndex, country) {
                 i > 20 ? ''
                     :
                     document.querySelector(`.day-clicked-${months[monthIndex]}-${i}`).addEventListener('click', (ev) => {
+                        document.querySelector('.goBook-btn').removeAttribute('disabled');
                         if(lastClickedDay){//Clear Previous Clicked
                             lastClickedDay.style.backgroundColor= "#97b8e92a";
                             lastClickedDay.style.color= "#114b7a";
@@ -456,9 +459,11 @@ if (document.title === "Events") {
     document.getElementById('countrySelect').onchange= (ev)=>{
         const location_package= JSON.parse(sessionStorage.getItem('location_package'));
         // document.querySelector('.total-price').style.display= "block";
+        
 
         if(ev.target.value !== "Egypt"){
             sessionStorage.setItem("total_Price", location_package.price.foreign);
+            document.querySelector('.goBook-btn').removeAttribute('disabled');
             document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.12)";
             document.querySelector('.Calendar-Disabled-Div span').innerText= "Please Select Country First!!";
             document.querySelector('.Calendar-Disabled-Div').style.display= "flex";
