@@ -162,7 +162,6 @@ function setCalender(monthIndex, firstIndex, lastIndex, country) {
             document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.backgroundColor= "#114b7a";
             document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.color= "#fff";
         }
-        console.log(sessionStorage.getItem('Calendar_FromDay'), sessionStorage.getItem('Calendar_ToDay'));
 
         let start= parseInt(sessionStorage.getItem('Calendar_FromDay'));
         let end= parseInt(sessionStorage.getItem('Calendar_ToDay') < start? (30-start) : sessionStorage.getItem('Calendar_ToDay'));
@@ -508,7 +507,6 @@ if (document.title === "Events") {
         counter++;
     });
 } else if (document.title === "Payment") {//Payment Page
-    
     const Doctor = JSON.parse(sessionStorage.getItem("DoctorPay_Data"));
     setDoctorPayment_Info(Doctor);
     document.getElementById("surgey-no").onclick = () => {
@@ -536,6 +534,10 @@ if (document.title === "Events") {
         document.getElementById('FromBookedDays').onkeyup= (e)=>{
             sessionStorage.setItem("Calendar_FromDay", e.target.value);
             document.getElementById('ToBookedDays').value= "";
+            //Detect Dec/Nov From Day Number
+            document.querySelectorAll('.BookedDaysDiv >div button')[0].innerText= (parseInt(e.target.value) >= 20? "Novamber": "December");
+            // console.log(document.querySelectorAll('.BookedDaysDiv >div button')[0]);
+
             if( (e.target.value >= 20 && e.target.value <= 30) ){
                 sessionStorage.setItem("Calendar_FromMonth", 0);
                 // setCalender(0, 2, 3, ev.target.value);
@@ -549,27 +551,45 @@ if (document.title === "Events") {
         document.getElementById('ToBookedDays').onkeyup= (e)=>{
             sessionStorage.setItem("Calendar_ToDay", e.target.value);
             sessionStorage.setItem("Shifted_To_DEC", false);
-
-            if(Math.abs(document.getElementById('FromBookedDays').value - e.target.value) <= 1 && document.getElementById('FromBookedDays').value !== e.target.value){//
+            //Detect Dec/Nov From Day Number
+            document.querySelectorAll('.BookedDaysDiv >div button')[1].innerText= (parseInt(e.target.value) > 20? "Novamber": "December");
+            // console.log(document.querySelectorAll('.BookedDaysDiv >div button')[1]);
+                    
+            if(Math.abs(document.getElementById('FromBookedDays').value - e.target.value) <= 1 && (document.getElementById('FromBookedDays').value !== "20" && e.target.value !== "20" || e.target.value === "21")){//
+                document.querySelector('.dayDiv').style.display = 'none';
                 document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.5)";
                 document.querySelector('.Calendar-Disabled-Div').style.display= "flex";
                 document.querySelector('.Calendar-Disabled-Div span').innerText= "At Least 1 Day Between Comming And Leaving Day";
                 document.querySelector('.Calendar-Disabled-Div span').style.display= "flex";
             }else{
+                document.querySelector('.dayDiv').style.display = 'none';
                 document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.12)";
                 document.querySelector('.Calendar-Disabled-Div span').innerText= "Please Select Country First!!";
                 document.querySelector('.Calendar-Disabled-Div span').style.display= "none";
-
             }
-           
 
-            if( (e.target.value > 20 && e.target.value <= 30)){
-                sessionStorage.setItem("Calendar_ToMonth", 0);
-                setCalender(0, 2, 3, ev.target.value);
-            }else if(e.target.value <= 20){
-                sessionStorage.setItem("Calendar_ToMonth", 1);
-                setCalender(1, 4, 0, ev.target.value)
+            if(//Not Valid Cases
+                (parseInt(document.getElementById('FromBookedDays').value) < 20 && parseInt(document.getElementById('FromBookedDays').value) > parseInt(e.target.value))|| //From < 20 && From > To 
+                (parseInt(document.getElementById('FromBookedDays').value) < 20 && parseInt(e.target.value) > 20)|| //From < 20 && To > 20 
+                (parseInt(document.getElementById('FromBookedDays').value) <= 0 || parseInt(e.target.value) <= 0)|| //From <= 0 || To <= 0 
+                (parseInt(document.getElementById('FromBookedDays').value) > 30 || parseInt(e.target.value) > 30) //From > 30 || To > 30 
+                ){
+                document.querySelector('.dayDiv').style.display = 'none';
+                document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.5)";
+                document.querySelector('.Calendar-Disabled-Div').style.display= "flex";
+                document.querySelector('.Calendar-Disabled-Div span').innerText= "Please Enter A Valid Date!!";
+                document.querySelector('.Calendar-Disabled-Div span').style.display= "flex";
+            }else{
+                if( (e.target.value > 20 && e.target.value <= 30)){
+                    sessionStorage.setItem("Calendar_ToMonth", 0);
+                    setCalender(0, 2, 3, ev.target.value);
+                }else if(e.target.value <= 20){
+                    sessionStorage.setItem("Calendar_ToMonth", 1);
+                    setCalender(1, 4, 0, ev.target.value)
+                }
             }
+
+            
             
         };
     }//End onchange

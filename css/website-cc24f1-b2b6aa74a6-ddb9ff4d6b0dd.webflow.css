@@ -8256,11 +8256,34 @@ p {
   align-items: center;
 }
 .BookedDaysDiv #FromBookedDays, .BookedDaysDiv #ToBookedDays{
-  padding: 10px;
+  padding: 12px;
   color: #114b7a;
-  border: 1px solid #114b7a;
+  background-color: #DDDDDD;
+  border: none;
   outline: none;
   margin: 10px;
+  margin-right: 0 !important;
+  border-radius: 10px;
+}
+
+.BookedDaysDiv #FromBookedDays:focus, .BookedDaysDiv #ToBookedDays:focus{
+ box-shadow: 0 0 8px #114b7a;
+ transition: ease-in-out 0.3s;
+}
+.BookedDaysDiv > div{
+  position: relative;
+}
+.BookedDaysDiv .Dec-Nov-Btn{
+  background-color: #DDDDDD;
+  position: absolute;
+  right: 5%;
+  top: 32% ; 
+  width: 80px;
+  /* padding: 10px; */
+  /* margin-left: 0; */
+  text-align: center;
+  border-left: 1px solid #114b7a;
+
 }
 .calender{
   background-color: #fff;
