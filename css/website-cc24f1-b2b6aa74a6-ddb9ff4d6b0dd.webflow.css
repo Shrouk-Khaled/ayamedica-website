@@ -8100,16 +8100,17 @@ p {
   font-weight: 600;
   color: #114b7a;
 }
-.Payment-Method .Doctor-Info .doctor-location .locations .location-btn.w--current{
+.Payment-Method .Doctor-Info .doctor-location .locations  .active{
+  background-color: #183a59 !important;
+  color: #fff !important;
+  transition: ease-in-out 0.3s;
+}
+
+/* .Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
   background-color: #183a59;
   color: #fff;
   transition: ease-in-out 0.3s;
-}
-.Payment-Method .Doctor-Info .doctor-location .locations .location-btn:focus{
-  background-color: #183a59;
-  color: #fff;
-  transition: ease-in-out 0.3s;
-}
+} */
 
 .Payment-Method .Doctor-Info .package-includes .package-list{
   color: #114b7a;
@@ -8285,6 +8286,9 @@ p {
   border-left: 1px solid #114b7a;
 
 }
+/* .total-price{
+  display: none;
+} */
 .calender{
   background-color: #fff;
   border-radius: 10px;

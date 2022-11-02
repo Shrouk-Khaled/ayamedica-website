@@ -236,22 +236,21 @@
               <select name="country-select" id="countrySelect" >
                 <option value="-" selected disabled> Country </option>
                 <option value="Egypt" > Egypt </option>
-                <option value="Oman" > Oman</option>
-                <option value="Kuwait" >Kuwait</option>
+                <option value="Oman" > Other</option>
               </select>
           </div>
           <div class="BookedDaysDiv">
             <h4>Booking Days: </h4>
             <div>
-              <input type="text" placeholder="From Day" name="FromBookedDays" id= "FromBookedDays"/>
+              <input type="text" placeholder="Check In" name="FromBookedDays" id= "FromBookedDays"/>
               <button type="button" class="Dec-Nov-Btn">Dec/Nov</button>
             </div>
             <div>
-              <input type="text" placeholder="To Day" name="ToBookedDays" id= "ToBookedDays"/>
+              <input type="text" placeholder="Check Out" name="ToBookedDays" id= "ToBookedDays"/>
               <button type="button" class="Dec-Nov-Btn">Dec/Nov</button>
             </div>
             <div style="padding: 10px;">
-              <i> At Least 1 Day Between Comming And Leaving Day</i>
+              <i> At Least 2 Days Between Comming And Leaving Day</i>
             </div>
         </div>
           <div class="priceDiv">
@@ -285,10 +284,10 @@
             <h4 class="div-day"> Your Day: <span id="day-choose-text"></span></h4>
           </div>
           <div class="priceDiv">
-            <h4 class="total-price"> Price: <span id="price-text">100$</span></h4>
+            <h4 class="total-price"> Price: <span id="price-text"></span></h4>
           </div>
           <div class="bookDiv">
-            <button class="goBook-btn" onclick="handleBookForm()"> BOOK</button>
+            <button class="goBook-btn" onclick="handleBookForm()" disabled> BOOK</button>
           </div>
         </div>
       </div>

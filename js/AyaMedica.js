@@ -58,30 +58,47 @@ function setDoctorPayment_Info(doctor) {
     document.querySelector(".doctor-name span").innerText = doctor.name;
     document.querySelector(".clinic-name span").innerText = doctor.clinicName;
     const locationDiv = document.querySelector(".doctor-location .locations");
+    sessionStorage.setItem('location_package', JSON.stringify({//Set Default Location_Info
+        mohafza: doctor.locations[0].mohafza,
+        price: doctor.locations[0].price,
+        foreign_OverDay: doctor.locations[0].foreign_OverDay,
+    }));
     for (const i in doctor.locations) {
         if (i == 0) {
             locationDiv.insertAdjacentHTML(
                 "beforeend",
-                `<button class="location-btn w--current" id='location-btn-${i}'>${doctor.locations[i].name}</button>`
+                `<button class="location-btn active" id='location-btn-${i}'>${doctor.locations[i].name}</button>`
             );
-            document.getElementById(`location-btn-${i}`).onclick = () => {
+            
+            document.getElementById(`location-btn-${i}`).onclick = (e) => {
                 setPackage_Info(doctor, i);
+                document.getElementById(`location-btn-${parseInt(i)}`).classList.add('active');
+                let c;
+                for(c= 0 ; c < doctor.locations.length; c++){
+                    if(parseInt(i) !== c){
+                        document.getElementById(`location-btn-${c}`).classList.remove('active')
+                    }
+                }
             };
         } else {
             locationDiv.insertAdjacentHTML(
                 "beforeend",
-                `<button class="location-btn " id='location-btn-${i}'>${doctor.locations[i].name}</button>`
+                `<button class="location-btn " id='location-btn-${i}'>${doctor.locations[parseInt(i)].name}</button>`
             );
-            document.getElementById(`location-btn-${i}`).onclick = () => {
+            document.getElementById(`location-btn-${parseInt(i)}`).onclick = (e) => {
                 setPackage_Info(doctor, i);
-                document
-                    .getElementById(`location-btn-0`)
-                    .classList.remove("w--current");
+                document.getElementById(`location-btn-${parseInt(i)}`).classList.add('active');
+                let c;
+                for(c= 0 ; c < doctor.locations.length; c++){
+
+                    if(parseInt(i) !== c){
+                        document.getElementById(`location-btn-${c}`).classList.remove('active')
+                    }
+                }
             };
         }
     }
-    document.querySelector(".doctor-description span").innerText =
-        doctor.description;
+    document.querySelector(".doctor-description span").innerText = doctor.description;
     const packageDiv = document.querySelector(".package-includes .package-list");
     doctor.locations[0].package.forEach((pack, i) => {
         i === 0
@@ -97,6 +114,12 @@ function setDoctorPayment_Info(doctor) {
 function setPackage_Info(doctor, index) {
     const packageDiv = document.querySelector(".package-includes .package-list");
     packageDiv.innerHTML = "";
+    // console.log(doctor.locations[index]);
+    sessionStorage.setItem('location_package', JSON.stringify({
+        mohafza: doctor.locations[index].mohafza,
+        price: doctor.locations[index].price,
+        foreign_OverDay: doctor.locations[index].foreign_OverDay,
+    }));
 
     doctor.locations[index].package.forEach((pack, i) => {
         i === 0
@@ -175,50 +198,50 @@ function setCalender(monthIndex, firstIndex, lastIndex, country) {
             sessionStorage.setItem('Shifted_To_DEC', false);
             
         }
-        // console.log(start, end);
 
         for(let x= start + 1 ; x < end ; x++){
             document.querySelector(`.day-clicked-${months[monthIndex]}-${x}`).style.backgroundColor= "#fff";
             document.querySelector(`.day-clicked-${months[monthIndex]}-${x}`).style.color= "#114b7a";
             document.querySelector(`.day-clicked-${months[monthIndex]}-${x}`).style.border= "1px solid #114b7a";
         }
-
         
-
         if(document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_ToDay')}`)){
             document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.backgroundColor= "#114b7a";
             document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.color= "#fff";
         }
-        document.querySelector('.dayDiv').style.display = 'block';
-        var showDate_Span= document.getElementById('day-choose-text');
-        if(sessionStorage.getItem('Calendar_ToMonth')){
+        // document.querySelector('.dayDiv').style.display = 'block';
+        // var showDate_Span= document.getElementById('day-choose-text');
+        // if(sessionStorage.getItem('Calendar_ToMonth')){
+        //     showDate_Span.innerHTML = `<i style= "color: grey;">From:</i> ${sessionStorage.getItem('Calendar_FromDay')}/${months_numbers[sessionStorage.getItem('Calendar_FromMonth')]}/2022 <i style= "color: grey;">To:</i> ${sessionStorage.getItem('Calendar_ToDay')}/${months_numbers[sessionStorage.getItem('Calendar_ToMonth')]}/2022`;
+        // }
+
+
+        console.log(document.querySelector('.Calendar-Disabled-Div').style.backgroundColor);
+        if(document.querySelector('.Calendar-Disabled-Div').style.backgroundColor === "rgba(0, 0, 0, 0.12)"){
+            //All Validation Cases Done
+            const checkIn= parseInt(sessionStorage.getItem("Calendar_FromDay"));
+            const checkOut= parseInt(sessionStorage.getItem("Calendar_ToDay"));
+            // console.log(checkIn, checkOut);
+            document.querySelector('.dayDiv').style.display = 'block';
+            var showDate_Span= document.getElementById('day-choose-text');
+            // .priceDiv .total-price
+            var totalDays= 0;
+            if( ((checkIn >= 20 && checkIn <= 30) && (checkOut > 20)) ||
+                ((checkIn < 20 ) && (checkOut <= 20))
+            ){// (30>= F >= 20 &&  T > 20) || (F < 20 &&  T <= 20)
+                totalDays= (checkOut - checkIn);
+            }else if( (checkIn >= 20 && checkIn <= 30) && (checkOut <= 20) ){
+                totalDays= (30 - checkIn) + checkOut;
+
+            }
+            // console.log( parseInt(sessionStorage.getItem('total_Price')),  parseInt(JSON.parse(sessionStorage.getItem('location_package')).foreign_OverDay), totalDays );
+            const total_Price= parseInt(sessionStorage.getItem('total_Price')) + (parseInt(JSON.parse(sessionStorage.getItem('location_package')).foreign_OverDay)* (totalDays - 3));
+            document.querySelector('.total-price #price-text').innerText= `${total_Price}$`;
             showDate_Span.innerHTML = `<i style= "color: grey;">From:</i> ${sessionStorage.getItem('Calendar_FromDay')}/${months_numbers[sessionStorage.getItem('Calendar_FromMonth')]}/2022 <i style= "color: grey;">To:</i> ${sessionStorage.getItem('Calendar_ToDay')}/${months_numbers[sessionStorage.getItem('Calendar_ToMonth')]}/2022`;
         }
+
     }else{
-            // if(sessionStorage.getItem('Calendar_FromMonth')){
-            //     if(months[monthIndex] === sessionStorage.getItem('Calendar_FromMonth')){//Clear Other Countries Date
-            //         console.log(document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_FromDay')}`))
-            //         document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.backgroundColor= "#97b8e92a";
-            //         document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.color= "#114b7a";
-
-            //     }else{
-            //         document.querySelector(`.day-clicked-${months[sessionStorage.getItem('Calendar_FromMonth')]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.backgroundColor= "#97b8e92a";
-            //         document.querySelector(`.day-clicked-${months[sessionStorage.getItem('Calendar_FromMonth')]}-${sessionStorage.getItem('Calendar_FromDay')}`).style.color= "#114b7a";
-
-            //     }
-            // }
-
-
-            // if(sessionStorage.getItem('Calendar_ToMonth')){
-            //     if(months[monthIndex] === sessionStorage.getItem('Calendar_ToMonth')){
-            //         document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.backgroundColor= "#97b8e92a";
-            //         document.querySelector(`.day-clicked-${months[monthIndex]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.color= "#114b7a";
-            //     }else{
-            //         document.querySelector(`.day-clicked-${months[sessionStorage.getItem('Calendar_ToMonth')]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.backgroundColor= "#97b8e92a";
-            //         document.querySelector(`.day-clicked-${months[sessionStorage.getItem('Calendar_ToMonth')]}-${sessionStorage.getItem('Calendar_ToDay')}`).style.color= "#114b7a";
-            //     }
-            // }
-            
+        //AddOnClickEventListener To Each Day
         for (let i = 1; i <= lastDay; i++) {
             if (months_numbers[monthIndex] == 11) {
                 i < 20 ? ''
@@ -245,109 +268,17 @@ function setCalender(monthIndex, firstIndex, lastIndex, country) {
                         lastClickedDay= ev.target;
                         lastClickedDay.style.backgroundColor= "#114b7a";
                         lastClickedDay.style.color= "#fff";
-                        document.querySelector('.dayDiv').style.display = 'block'
+                        document.querySelector('.dayDiv').style.display = 'block';
                         document.getElementById('day-choose-text').innerHTML = i + '/' + months_numbers[monthIndex] + '/' + 2022;
+                        
                     });
             }
+           
+
+
         }
     }
-    
-
-
-    
-    
-    // if(months[monthIndex] === 'Dec' && sessionStorage.getItem('fromNov_toDec_days')){
-    //     for(let z = 1; z < sessionStorage.getItem('fromNov_toDec_days'); z++){
-    //         document.querySelector(`.day-clicked-${z}`).style.backgroundColor= "#033d932a";
-    //         document.querySelector(`.day-clicked-${z}`).style.color= "#114b7a";
-    //         document.querySelector(`.day-clicked-${z}`).style.border= "1px solid #114b7a";
-    //     }
-    //     document.querySelector(`.day-clicked-${sessionStorage.getItem('fromNov_toDec_days')}`).style.backgroundColor= "#114b7a";
-    //     document.querySelector(`.day-clicked-${sessionStorage.getItem('fromNov_toDec_days')}`).style.color= "#fff";
-    // }
-
-    // if(months[monthIndex] === 'Nov' && sessionStorage.getItem('selectedDayIndex')){
-    //     let g= 0;
-    //     for( g = parseInt(sessionStorage.getItem('selectedDayIndex')) + 1; (g <= 30) && (g < parseInt(sessionStorage.getItem('selectedDayIndex')) + parseInt(sessionStorage.getItem('PrevBookedDays')))   ; g++){
-    //         console.log(g);
-    //         document.querySelector(`.day-clicked-${g}`).style.backgroundColor= "#033d932a";
-    //         document.querySelector(`.day-clicked-${g}`).style.color= "#114b7a";
-    //         document.querySelector(`.day-clicked-${g}`).style.border= "1px solid #114b7a";
-    //     }
-    //     // document.querySelector(`.day-clicked-${g - 1}`).style.backgroundColor= "#114b7a";
-    //     // document.querySelector(`.day-clicked-${g - 1}`).style.color= "#fff";
-    //     document.querySelector(`.day-clicked-${parseInt(sessionStorage.getItem('selectedDayIndex'))}`).style.backgroundColor= "#114b7a";
-    //     document.querySelector(`.day-clicked-${parseInt(sessionStorage.getItem('selectedDayIndex'))}`).style.color= "#fff";
-    // }
-    
-    //add event listener to day when click
-    // for (let i = 1; i <= lastDay; i++) {
-    //     if (months_numbers[monthIndex] == 11) {
-
-    //         i < 20 ? ''
-    //             :
-    //             document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
-    //                 var bookedDays= document.getElementById('BookedDays').value;
-    //                 if(bookedDays){
-    //                     bookedDays= ( bookedDays < 3? 3: bookedDays );
-    //                 }else{
-    //                     bookedDays= 3;
-    //                 }
-    //                 if(lastClickedDay){//Clear Previous Clicked
-    //                     lastClickedDay.style.backgroundColor= "#97b8e92a";
-    //                     lastClickedDay.style.color= "#114b7a";
-    //                     if(country!== "Egypt"){
-    //                         for(let c= 0; c < sessionStorage.getItem('PrevBookedDays') - sessionStorage.getItem("fromNov_toDec_days"); c++){
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.backgroundColor= "#97b8e92a";
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.color= "#114b7a";
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.border= "1px solid #fff";
-    //                         }
-    //                     }
-    //                 }
-    //                 sessionStorage.setItem("fromNov_toDec_days",0);
-    //                 lastClickedDay= ev.target;
-    //                 handleOnClickedDay(bookedDays, country, i, months_numbers, monthIndex, lastClickedDay,  document.querySelector('.dayDiv'), document.getElementById('day-choose-text'));
-    //             })
-    //     }
-    //     else {
-    //         i > 20 ?
-    //             ''
-    //             :
-    //             document.querySelector(`.day-clicked-${i}`).addEventListener('click', (ev) => {
-    //                 var bookedDays= document.getElementById('BookedDays').value;
-    //                 if(bookedDays){
-    //                     bookedDays= ( bookedDays < 3? 3: bookedDays );
-    //                 }else{
-    //                     bookedDays= 3;
-    //                 }
-    //                 if(lastClickedDay){//Clear Previous Clicked
-    //                     lastClickedDay.style.backgroundColor= "#97b8e92a";
-    //                     lastClickedDay.style.color= "#114b7a";
-    //                     if(country!== "Egypt"){
-    //                         for(let c= 1; c < sessionStorage.getItem('PrevBookedDays') - sessionStorage.getItem("fromNov_toDec_days"); c++){
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.backgroundColor= "#97b8e92a";
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.color= "#114b7a";
-    //                             document.querySelector(`.day-clicked-${(parseInt(lastClickedDay.innerText) + c)}`).style.border= "1px solid #fff";
-    //                         }
-    //                     }
-    //                 }
-    //                 sessionStorage.setItem("fromNov_toDec_days",0);
-    //                 lastClickedDay= ev.target;
-    //                 handleOnClickedDay(bookedDays, country, i, months_numbers, monthIndex, lastClickedDay,  document.querySelector('.dayDiv'), document.getElementById('day-choose-text'));
-    //                 // if(lastClickedDay){
-    //                 //     lastClickedDay.style.backgroundColor= "#97b8e92a";
-    //                 //     lastClickedDay.style.color= "#114b7a";
-    //                 // }
-    //                 // lastClickedDay= ev.target;
-    //                 // lastClickedDay.style.backgroundColor= "#114b7a";
-    //                 // lastClickedDay.style.color= "#fff";
-    //                 // document.querySelector('.dayDiv').style.display = 'block'
-    //                 // document.getElementById('day-choose-text').innerHTML = i + '/' + months_numbers[monthIndex] + '/' + 2022;
-    //             })
-    //     }
-    // }
-
-    
+     
 }
 
 function handleOnClickedDay( bookedDays, country, selectedDayIndex, months_numbers, monthIndex, lastClickedDay, showDate_Div, showDate_Span){
@@ -420,7 +351,9 @@ if (document.title === "Events") {
                         "One Meet and Assist at cairo airport upon arrival",
                         "Two transfers from /to cairo airport ",
                     ],
-                    price:150
+                    mohafza: "cairo",
+                    price:{egy: 400, foreign: 1010},
+                    foreign_OverDay: 170
                 },
                 {
                     name: "Zahran eye center - Damiette",
@@ -430,10 +363,11 @@ if (document.title === "Events") {
                         "One Meet and Assist at cairo airport upon arrival",
                         "Two transfers from /to cairo airport ",
                     ],
-                    price: 250
+                    mohafza: "damiette",
+                    price:{egy: 300, foreign: 890},
+                    foreign_OverDay: 100
                 },
             ],
-            price: 100
         },
         //Doctor Magdy
         {
@@ -459,10 +393,11 @@ if (document.title === "Events") {
                         "One Meet and Assist at cairo airport upon arrival",
                         "Two transfers from /to cairo airport ",
                     ],
-                    price:150
+                    mohafza: "cairo",
+                    price:{egy: 400, foreign: 1010},
+                    foreign_OverDay: 170
                 },
             ],
-            price: 200
 
         },
         //Doctor Mahmoud
@@ -489,10 +424,11 @@ if (document.title === "Events") {
                         "One Meet and Assist at cairo airport upon arrival",
                         "Two transfers from /to cairo airport ",
                     ],
-                    price:180
+                    mohafza: "alex",
+                    price:{egy: 450, foreign: 1050},
+                    foreign_OverDay: 100
                 },
             ],
-            price: 300
         }
     ];
     var Service_Wrapper = document.querySelector(".Doctors-wrapper");
@@ -509,6 +445,7 @@ if (document.title === "Events") {
 } else if (document.title === "Payment") {//Payment Page
     const Doctor = JSON.parse(sessionStorage.getItem("DoctorPay_Data"));
     setDoctorPayment_Info(Doctor);
+    // document.querySelector('.total-price').style.display= "none";
     document.getElementById("surgey-no").onclick = () => {
         document.getElementById("surgeryDesc").style.display = "none";
     };
@@ -517,11 +454,18 @@ if (document.title === "Events") {
     };
 
     document.getElementById('countrySelect').onchange= (ev)=>{
+        const location_package= JSON.parse(sessionStorage.getItem('location_package'));
+        // document.querySelector('.total-price').style.display= "block";
+
         if(ev.target.value !== "Egypt"){
+            sessionStorage.setItem("total_Price", location_package.price.foreign);
             document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.12)";
             document.querySelector('.Calendar-Disabled-Div span').innerText= "Please Select Country First!!";
             document.querySelector('.Calendar-Disabled-Div').style.display= "flex";
         }else{
+            sessionStorage.setItem("total_Price", location_package.price.egy);
+            const total_Price= parseInt(sessionStorage.getItem("total_Price")); 
+            document.querySelector('.total-price #price-text').innerText= `${total_Price}$`;
             document.querySelector('.Calendar-Disabled-Div').style.display= "none";
         }
         document.querySelector('.Calendar-Disabled-Div span').style.display= "none";
@@ -553,13 +497,14 @@ if (document.title === "Events") {
             sessionStorage.setItem("Shifted_To_DEC", false);
             //Detect Dec/Nov From Day Number
             document.querySelectorAll('.BookedDaysDiv >div button')[1].innerText= (parseInt(e.target.value) > 20? "Novamber": "December");
-            // console.log(document.querySelectorAll('.BookedDaysDiv >div button')[1]);
                     
-            if(Math.abs(document.getElementById('FromBookedDays').value - e.target.value) <= 1 && (document.getElementById('FromBookedDays').value !== "20" && e.target.value !== "20" || e.target.value === "21")){//
+            if(Math.abs(document.getElementById('FromBookedDays').value - e.target.value) <= 2 &&
+            (document.getElementById('FromBookedDays').value !== "20" && e.target.value !== "20" || e.target.value === "21" || e.target.value === "22")
+            ){
                 document.querySelector('.dayDiv').style.display = 'none';
                 document.querySelector('.Calendar-Disabled-Div').style.backgroundColor= "rgba(0, 0, 0, 0.5)";
                 document.querySelector('.Calendar-Disabled-Div').style.display= "flex";
-                document.querySelector('.Calendar-Disabled-Div span').innerText= "At Least 1 Day Between Comming And Leaving Day";
+                document.querySelector('.Calendar-Disabled-Div span').innerText= "At Least 2 Days Between Comming And Leaving Day";
                 document.querySelector('.Calendar-Disabled-Div span').style.display= "flex";
             }else{
                 document.querySelector('.dayDiv').style.display = 'none';
@@ -580,6 +525,7 @@ if (document.title === "Events") {
                 document.querySelector('.Calendar-Disabled-Div span').innerText= "Please Enter A Valid Date!!";
                 document.querySelector('.Calendar-Disabled-Div span').style.display= "flex";
             }else{
+                //All Validation Cases Done
                 if( (e.target.value > 20 && e.target.value <= 30)){
                     sessionStorage.setItem("Calendar_ToMonth", 0);
                     setCalender(0, 2, 3, ev.target.value);
@@ -595,7 +541,7 @@ if (document.title === "Events") {
     }//End onchange
 
     sessionStorage.setItem('Calendar_FromDay', 20);
-    sessionStorage.setItem('Calendar_ToDay', 22);
+    sessionStorage.setItem('Calendar_ToDay', 23);
 
     
         
