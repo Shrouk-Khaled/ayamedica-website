@@ -435,7 +435,7 @@ if (document.title === "Events") {
             ],
         },
         {
-            imgPath: "images/drahmedelmassry.png",
+            imgPath: "images/drmahmoud.png",
             name: "Mahmoud Ismail",
             clinicName: "Nour Al-Hayah Eye Center",
             link: "https://youtu.be/D1S-oRz9Mho",
